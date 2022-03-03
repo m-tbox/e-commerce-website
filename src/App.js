@@ -2,28 +2,23 @@ import './App.css';
 import Header from './components/Header';
 import Home from './components/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Checkout from './components/Checkout';
 
 function App() {
   // BEM naming convention
   return (
     <Router>
       <div className="app">
+        <Header />
+
         <Routes>
           <Route path="/checkout" element={
-            <>
-              <Header />
-              <h1>
-                I am Checkout page
-              </h1>
-            </>
+            <Checkout />
           } >
-            
+
           </Route>
           <Route path="/" element={
-            <>
-              <Header />
-              <Home />
-            </>
+            <Home />
           } >
           </Route>
         </Routes>

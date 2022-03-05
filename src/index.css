@@ -16,3 +16,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+[data-theme='light'] {
+  --body-background: #F9EDEA;
+
+  --header-background: #94628E;
+  --header-text-color: white;
+  --header-search-icon-background: #F9EDEA;
+
+  --button-color: #94628E;
+  --button-text-color: white;
+  --button-border-color: #6d366a #b671b2 #dfb7dd;
+
+  --product-background: white;
+  --product-text-color: black;
+
+  --subtotal-background: #F1DFCA;
+  --subtotal-border-color: #ddb282;
+  --subtotal-text-color: black;
+}

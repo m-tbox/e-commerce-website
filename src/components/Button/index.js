@@ -1,9 +1,14 @@
 import React from 'react'
 import './styles.css'
 
-function Button({ title }) {
+function Button({ title, onClick }) {
     return (
-        <button className="button"> {title} </button>
+        <button
+            className="button"
+            onClick={onClick}
+        >
+            {title}
+        </button>
     )
 }
 

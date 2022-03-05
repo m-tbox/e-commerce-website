@@ -1,16 +1,17 @@
-import React from 'react'
-import './styles.css'
-import CurrencyFormat from 'react-currency-format'
-import Button from '../Button'
+import React from 'react';
+import './styles.css';
+import CurrencyFormat from 'react-currency-format';
+import Button from '../Button';
 
-function Subtotal() {
+function Subtotal({ itemcount, subtotal }) {
+
     return (
         <div className="subtotal">
             <CurrencyFormat
                 renderText={value =>
                     <>
                         <p>
-                            Subtotal ({0} items)
+                            Subtotal ({itemcount} items)
                             <strong> {`${value}`} </strong>
                         </p>
                         <small className="subtotal__gift">
@@ -19,7 +20,7 @@ function Subtotal() {
                     </>
                 }
                 decimalScale={2}
-                value={0}
+                value={subtotal}
                 displayType={'text'}
                 thousandSeparator={true}
                 prefix={'$'}

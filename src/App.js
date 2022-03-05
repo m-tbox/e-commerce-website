@@ -8,7 +8,7 @@ function App() {
   // BEM naming convention
   return (
     <Router>
-      <div className="app">
+      <div className="app" data-theme={'light'}>
         <Header />
 
         <Routes>

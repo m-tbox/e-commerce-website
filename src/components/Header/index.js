@@ -4,8 +4,11 @@ import logo from '../../assets/logo.png';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link } from 'react-router-dom';
+import { GetTotalNumberOfItemsInCart } from '../../helpers/cartHelper';
 
 function Header() {
+    const numOfItems = GetTotalNumberOfItemsInCart();
+    
     return (
         <div className='header'>
             <Link to="">
@@ -42,11 +45,11 @@ function Header() {
                     </span>
                 </div>
 
-                <Link to="/checkout">
+                <Link to="/checkout" className='text-link'>
                     <div className="header__optionBasket">
                         <ShoppingBasketIcon />
                         <span className="header__optionLine2 headred__basketCount">
-                            0
+                            {numOfItems}
                         </span>
                     </div>
                 </Link>

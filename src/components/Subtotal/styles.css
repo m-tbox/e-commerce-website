@@ -5,9 +5,11 @@
     width: 300px;
     height: 100px;
     padding: 20px;
-    background-color: #F1DFCA;
-    border: 1px solid #ddb282;
+    background-color: var(--subtotal-background);
+    border: 1px solid var(--subtotal-border-color);
     border-radius: 3px;
+
+    color: var(--subtotal-text-color);
 }
 
 .subtotal__gift {

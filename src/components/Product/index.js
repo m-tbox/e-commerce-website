@@ -1,8 +1,24 @@
-import React from 'react'
-import Button from '../Button'
-import './styles.css'
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import './styles.css';
+import Button from '../Button';
+import { addToCart } from '../../store/Actions';
 
-function Product({ title, image, price, rating }) {
+function Product({ id, title, image, price, rating }) {
+  const dispatch = useDispatch();
+
+  const onClickAddToCart = () => {
+    const product = {
+      id,
+      title,
+      image,
+      price,
+      rating
+    };
+
+    dispatch(addToCart(product));
+  }
+
   return (
     <div className="product">
       <div className="product__info">
@@ -13,7 +29,7 @@ function Product({ title, image, price, rating }) {
         </p>
         <div className="product__rating">
           {Array(rating).fill().map((_, i) =>
-            <p>⭐</p>
+            <p key={i}>⭐</p>
           )}
         </div>
       </div>
@@ -22,6 +38,7 @@ function Product({ title, image, price, rating }) {
 
       <Button
         title={'Add to basket'}
+        onClick={() => onClickAddToCart()}
       />
     </div>
   )

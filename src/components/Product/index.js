@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '../Button'
 import './styles.css'
 
 function Product({ title, image, price, rating }) {
@@ -19,7 +20,9 @@ function Product({ title, image, price, rating }) {
 
       <img src={image} alt="" />
 
-      <button>Add to basket</button>
+      <Button
+        title={'Add to basket'}
+      />
     </div>
   )
 }

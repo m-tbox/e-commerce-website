@@ -34,4 +34,7 @@ code {
   --subtotal-background: #F1DFCA;
   --subtotal-border-color: #ddb282;
   --subtotal-text-color: black;
+
+  --login-card-background: #F1DFCA;
+  --login-card-border-color: #ddb282;
 }

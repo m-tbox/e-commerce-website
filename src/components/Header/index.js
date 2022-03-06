@@ -5,9 +5,11 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link } from 'react-router-dom';
 import { GetTotalNumberOfItemsInCart } from '../../hooks/cartHelperHooks';
+import { GetUser } from '../../hooks/userHelperHooks';
 
 function Header() {
     const numOfItems = GetTotalNumberOfItemsInCart();
+    const user = GetUser();
 
     return (
         <div className='header'>
@@ -34,7 +36,7 @@ function Header() {
                         </span>
 
                         <span className="header__optionLine2">
-                            Sign In
+                            {user ? 'Sign Out' : 'Sign In'}
                         </span>
                     </div>
                 </Link>

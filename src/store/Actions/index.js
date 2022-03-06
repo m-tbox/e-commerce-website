@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from './actionTypes';
+import { ADD_TO_CART, REMOVE_FROM_CART, SET_USER } from './actionTypes';
 
 export const addToCart = (product) => {
     return {
@@ -11,5 +11,12 @@ export const removeFromCart = ({ id }) => {
     return {
         type: REMOVE_FROM_CART,
         id
+    }
+}
+
+export const setUser = (payload) => {
+    return {
+        type: SET_USER,
+        payload
     }
 }

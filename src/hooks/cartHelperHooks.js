@@ -8,10 +8,16 @@ function GetTotalNumberOfItemsInCart() {
 
 function GetSubtotalOfCart() {
     const cart = useSelector(state => state.cart);
-    return cart?.data?.reduce((a, b) => a + (b['price'] || 0), 0);
+    return cart?.data?.reduce((ammount, item) => ammount + (item.price || 0), 0);
+}
+
+function GetCart() {
+    const cart = useSelector(state => state.cart);
+    return cart?.data;
 }
 
 export {
     GetTotalNumberOfItemsInCart,
-    GetSubtotalOfCart
+    GetSubtotalOfCart,
+    GetCart
 }

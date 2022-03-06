@@ -9,17 +9,25 @@ function App() {
   return (
     <Router>
       <div className="app" data-theme={'light'}>
-        <Header />
-
         <Routes>
+          <Route path="/login" element={
+            <h1> Login page</h1>
+          }>
+          </Route>
           <Route path="/checkout" element={
-            <Checkout />
-          } >
+            <>
+              <Header />
+              <Checkout />
+            </>
+          }>
 
           </Route>
           <Route path="/" element={
-            <Home />
-          } >
+            <>
+              <Header />
+              <Home />
+            </>
+          }>
           </Route>
         </Routes>
       </div>

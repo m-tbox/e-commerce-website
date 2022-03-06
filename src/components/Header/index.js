@@ -4,14 +4,14 @@ import logo from '../../assets/logo.png';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link } from 'react-router-dom';
-import { GetTotalNumberOfItemsInCart } from '../../helpers/cartHelper';
+import { GetTotalNumberOfItemsInCart } from '../../hooks/cartHelperHooks';
 
 function Header() {
     const numOfItems = GetTotalNumberOfItemsInCart();
-    
+
     return (
         <div className='header'>
-            <Link to="">
+            <Link to="/">
                 <img
                     className='header__logo'
                     src={logo}
@@ -27,14 +27,17 @@ function Header() {
             </div>
 
             <div className="header__nav">
-                <div className="header__option">
-                    <span className="header__optionLine1">
-                        Hello Guest
-                    </span>
-                    <span className="header__optionLine2">
-                        Sign In
-                    </span>
-                </div>
+                <Link to="/login" className='text-link'>
+                    <div className="header__option">
+                        <span className="header__optionLine1">
+                            Hello Guest
+                        </span>
+
+                        <span className="header__optionLine2">
+                            Sign In
+                        </span>
+                    </div>
+                </Link>
 
                 <div className="header__option">
                     <span className="header__optionLine1">

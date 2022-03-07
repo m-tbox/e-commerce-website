@@ -33,14 +33,17 @@ function Login() {
     const onClickRegister = (e) => {
         e.preventDefault();
 
-        auth.createUserWithEmailAndPassword(email, password)
-            .then(auth => {
+        navigate('/register');
 
-                if (auth) {
-                    navigate('/');
-                }
-            })
-            .catch(error => alert(error));
+
+        // auth.createUserWithEmailAndPassword(email, password)
+        //     .then(auth => {
+
+        //         if (auth) {
+        //             navigate('/');
+        //         }
+        //     })
+        //     .catch(error => alert(error));
     }
 
     return (

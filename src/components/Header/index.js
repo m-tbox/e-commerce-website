@@ -6,10 +6,17 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link } from 'react-router-dom';
 import { GetTotalNumberOfItemsInCart } from '../../hooks/cartHelperHooks';
 import { GetUser } from '../../hooks/userHelperHooks';
+import { auth } from '../../firebase';
 
 function Header() {
     const numOfItems = GetTotalNumberOfItemsInCart();
     const user = GetUser();
+
+    const handleAuthentication = () => {
+        if (user) {
+            auth.signOut();
+        }
+    }
 
     return (
         <div className='header'>
@@ -29,10 +36,10 @@ function Header() {
             </div>
 
             <div className="header__nav">
-                <Link to="/login" className='text-link'>
-                    <div className="header__option">
+                <Link to={!user && "/login"} className='text-link'>
+                    <div onClick={handleAuthentication} className="header__option">
                         <span className="header__optionLine1">
-                            Hello Guest
+                            Hello {user ? user.name : 'Guest'}
                         </span>
 
                         <span className="header__optionLine2">

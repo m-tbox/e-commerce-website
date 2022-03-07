@@ -36,3 +36,8 @@
 .register__signinLink:hover { 
     cursor: pointer;
 }
+
+.register__container > h1 {
+    font-weight: 500;
+    margin-bottom: 20px;
+}

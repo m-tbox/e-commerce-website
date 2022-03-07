@@ -4,6 +4,8 @@ import logo from '../../assets/logo-black.png';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../Button';
 import { auth } from '../../firebase';
+import InputField from '../InputField';
+import { getErrorMsg, hasError, isEmailInValid } from '../../helpers';
 
 function Login() {
     const signInButtonStyle = {
@@ -19,31 +21,48 @@ function Login() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState([]);
+
+    const validateInput = () => {
+        let tempError = [];
+        let isValid = true;
+
+        if (!email) {
+            tempError.push({ email: 'Email is mandatory' });
+            isValid = false;
+        }
+        if (isEmailInValid(email)) {
+            tempError.push({ email: 'Please enter valid email' })
+            isValid = false;
+        }
+        if (!password) {
+            tempError.push({ password: 'Password is mandatory' });
+            isValid = false;
+        }
+        
+        setErrors(tempError);
+
+        return isValid;
+
+    }
 
     const onClickSignIn = (e) => {
         e.preventDefault();
 
-        auth.signInWithEmailAndPassword(email, password)
-            .then(auth => {
-                navigate('/');
-            })
-            .catch(error => alert(error.message));
+        const inputValid = validateInput();
+        if (inputValid) {
+            auth.signInWithEmailAndPassword(email, password)
+                .then(auth => {
+                    navigate('/');
+                })
+                .catch(error => alert(error.message));
+        }
     }
 
     const onClickRegister = (e) => {
         e.preventDefault();
 
         navigate('/register');
-
-
-        // auth.createUserWithEmailAndPassword(email, password)
-        //     .then(auth => {
-
-        //         if (auth) {
-        //             navigate('/');
-        //         }
-        //     })
-        //     .catch(error => alert(error));
     }
 
     return (
@@ -60,19 +79,22 @@ function Login() {
                 <h1> Sign In </h1>
 
                 <form>
-                    <h5> Email </h5>
-                    <input
+                    <InputField
+                        title={'Email'}
                         type="text"
                         value={email}
                         onChange={e => setEmail(e.target.value)}
+                        error={hasError('email', errors)}
+                        errorMsg={getErrorMsg('email', errors)}
                     />
 
-                    <h5> Password </h5>
-                    <input
+                    <InputField
+                        title={'Password'}
                         type="password"
                         value={password}
                         onChange={e => setPassword(e.target.value)}
-
+                        error={hasError('password', errors)}
+                        errorMsg={getErrorMsg('password', errors)}
                     />
 
                     <Button

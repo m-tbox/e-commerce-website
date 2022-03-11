@@ -14,7 +14,6 @@ function Product({ id, title, image, price, rating }) {
     if (notifications && notifications.length > 0) {
       const firstIndexId = notifications[0].id;
       deleteNotification(firstIndexId);
-      debugger;
     }
   },
     10000
@@ -96,7 +95,6 @@ function Product({ id, title, image, price, rating }) {
           key={id}
           onDelete={() => deleteNotification(id)}
           title={title}
-          image={image}
         />
       ))}
     </animated.div>

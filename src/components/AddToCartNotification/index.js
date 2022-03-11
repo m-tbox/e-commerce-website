@@ -3,13 +3,28 @@ import ReactDOM from 'react-dom';
 import './styles.css';
 import CloseIcon from '@mui/icons-material/Close';
 import createContainer from './createContainer';
+import { useSpring, animated } from "react-spring";
 
 const container = createContainer();
 
-function AddToCartNotification({ title, image, onDelete }) {
+function AddToCartNotification({ title, onDelete }) {
+
+    const springProps = useSpring({
+        opacity: 1,
+        delay: 300,
+        transform: 'translateX(0px)',
+        from: {
+            opacity: 0,
+            transform: 'translateX(250px)'
+        }
+    });
+
     return (
         ReactDOM.createPortal(
-            <div className="addToCartNotification">
+            <animated.div
+                style={{ ...springProps }}
+                className="addToCartNotification"
+            >
 
                 <div className="addToCartNotification__titleContaier">
                     <span className="addToCartNotification__title">
@@ -24,7 +39,7 @@ function AddToCartNotification({ title, image, onDelete }) {
                 <p>
                     {title}
                 </p>
-            </div>,
+            </animated.div>,
             container
         )
     )

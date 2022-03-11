@@ -37,4 +37,10 @@ code {
 
   --login-card-background: #F1DFCA;
   --login-card-border-color: #ddb282;
+
+  --cart-incDec-button-color: #F1DFCA;
+  --cart-incDec--border-color: #ddb282;
+
+  --cart-image-background: #f1e5d5;
+  --cart-image-border-color: #e2cfb9;
 }

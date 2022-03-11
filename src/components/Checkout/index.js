@@ -1,4 +1,5 @@
 import React from 'react';
+import * as _ from 'lodash';
 import Subtotal from '../Subtotal';
 import './styles.css';
 import {
@@ -15,6 +16,8 @@ function Checkout() {
     const cart = GetCart();
     const user = GetUser();
 
+    const groupedProducts = _.groupBy(cart, (item) => item.id);
+
     return (
         <div className="checkout">
             <div className="checkout__left">
@@ -25,7 +28,7 @@ function Checkout() {
                     <h1 className="checkout__title">
                         Your Shopping Cart
                     </h1>
-                    {
+                    {/* {
                         cart.map((product, index) =>
                             <ChekoutProduct
                                 key={index}
@@ -36,6 +39,22 @@ function Checkout() {
                                 rating={product.rating}
                             />
                         )
+                    } */}
+
+                    {Object.values(groupedProducts).map((product, index) =>
+                        <>
+                            <ChekoutProduct
+                                key={index}
+                                id={product[0].id}
+                                title={product[0].title}
+                                image={product[0].image}
+                                price={product[0].price}
+                                rating={product[0].rating}
+
+                                numberOfAddedProduct={product.length}
+                            />
+                        </>
+                    )
                     }
                 </div>
             </div>

@@ -22,7 +22,7 @@ function App() {
         const userDetails = ref(db, `users/${uid}`);
         onValue(userDetails, (snapshot) => {
           let data = snapshot.val();
-          data = {...authUser, ...data};
+          data = { ...authUser, ...data };
 
           console.log('DAtata', data);
 

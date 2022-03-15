@@ -1,14 +1,18 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addToCart, removeFromCart } from '../../store/Actions';
+import { addToCart, removeAllFromCart, removeFromCart } from '../../store/Actions';
 import Button from '../Button';
 import './styles.css';
 import IncDecCounter from '../IncDecCounter';
 
-function ChekoutProduct({ id, image, title, price, rating, numberOfAddedProduct }) {
+function CheckoutProduct({ id, image, title, price, rating, numberOfAddedProduct, hideChangeAmountButtons }) {
     const dispatch = useDispatch();
 
     const onClickRemoveFromCart = () => {
+        dispatch(removeAllFromCart({ id }));
+    }
+
+    const onDecNumber = () => {
         dispatch(removeFromCart({ id }));
     }
 
@@ -28,16 +32,24 @@ function ChekoutProduct({ id, image, title, price, rating, numberOfAddedProduct 
         <div className="checkoutProduct">
             <img className="checkoutProduct__image" src={image} alt="" />
 
-            <IncDecCounter
-                number={numberOfAddedProduct}
-                decNumber={onClickRemoveFromCart}
-                incNumber={onIncNumber}
-            />
+            {
+                !hideChangeAmountButtons &&
+                <IncDecCounter
+                    number={numberOfAddedProduct}
+                    decNumber={onDecNumber}
+                    incNumber={onIncNumber}
+                />
+            }
 
             <div className="checkoutProduct__info">
                 <p className="checkoutProduct__title">
                     {title}
                 </p>
+
+                {
+                    hideChangeAmountButtons && `x ${numberOfAddedProduct}`
+                }
+
                 <p className="checkoutProduct__price">
                     <small>$</small>
                     <strong>{price}</strong>
@@ -48,13 +60,16 @@ function ChekoutProduct({ id, image, title, price, rating, numberOfAddedProduct 
                     )}
                 </div>
 
-                <Button
-                    title={'Remove from cart'}
-                    onClick={() => onClickRemoveFromCart()}
-                />
+                {
+                    !hideChangeAmountButtons &&
+                    <Button
+                        title={'Remove from cart'}
+                        onClick={() => onClickRemoveFromCart()}
+                    />
+                }
             </div>
         </div>
     )
 }
 
-export default ChekoutProduct
+export default CheckoutProduct

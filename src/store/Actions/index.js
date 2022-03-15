@@ -1,4 +1,9 @@
-import { ADD_TO_CART, REMOVE_FROM_CART, SET_USER } from './actionTypes';
+import {
+    ADD_TO_CART,
+    REMOVE_FROM_CART,
+    REMOVE_ALL_FROM_CART,
+    SET_USER
+} from './actionTypes';
 
 export const addToCart = (product) => {
     return {
@@ -10,6 +15,13 @@ export const addToCart = (product) => {
 export const removeFromCart = ({ id }) => {
     return {
         type: REMOVE_FROM_CART,
+        id
+    }
+}
+
+export const removeAllFromCart = ({ id }) => {
+    return {
+        type: REMOVE_ALL_FROM_CART,
         id
     }
 }

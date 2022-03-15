@@ -1,3 +1,5 @@
+import * as _ from 'lodash';
+
 export const hasError = (key, errors) => (
     errors.some(obj => Object.keys(obj).includes(key))
 )
@@ -26,3 +28,5 @@ export const isEmailInValid = (email) => {
         return true;
     }
 }
+
+export const getGropupedProducts = (prodcuts) =>  _.groupBy(prodcuts, (item) => item.id)

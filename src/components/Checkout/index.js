@@ -1,5 +1,4 @@
 import React from 'react';
-import * as _ from 'lodash';
 import Subtotal from '../Subtotal';
 import './styles.css';
 import {
@@ -7,8 +6,9 @@ import {
     GetSubtotalOfCart,
     GetTotalNumberOfItemsInCart
 } from '../../hooks/cartHelperHooks';
-import ChekoutProduct from '../CheckoutProduct';
+import CheckoutProduct from '../CheckoutProduct';
 import { GetUser } from '../../hooks/userHelperHooks';
+import { getGropupedProducts } from '../../helpers';
 
 function Checkout() {
     const numOfItems = GetTotalNumberOfItemsInCart();
@@ -16,7 +16,7 @@ function Checkout() {
     const cart = GetCart();
     const user = GetUser();
 
-    const groupedProducts = _.groupBy(cart, (item) => item.id);
+    const groupedProducts = getGropupedProducts(cart);
 
     return (
         <div className="checkout">
@@ -28,22 +28,10 @@ function Checkout() {
                     <h1 className="checkout__title">
                         Your Shopping Cart
                     </h1>
-                    {/* {
-                        cart.map((product, index) =>
-                            <ChekoutProduct
-                                key={index}
-                                id={product.id}
-                                title={product.title}
-                                image={product.image}
-                                price={product.price}
-                                rating={product.rating}
-                            />
-                        )
-                    } */}
 
-                    {Object.values(groupedProducts).map((product, index) =>
-                        <>
-                            <ChekoutProduct
+                    {
+                        Object.values(groupedProducts).map((product, index) =>
+                            <CheckoutProduct
                                 key={index}
                                 id={product[0].id}
                                 title={product[0].title}
@@ -53,8 +41,7 @@ function Checkout() {
 
                                 numberOfAddedProduct={product.length}
                             />
-                        </>
-                    )
+                        )
                     }
                 </div>
             </div>

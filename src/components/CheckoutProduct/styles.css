@@ -29,3 +29,7 @@
 .checkoutProduct__rating {
     display: flex;
 }
+
+.checkoutProduct__price {
+    margin-top: 10px;
+}

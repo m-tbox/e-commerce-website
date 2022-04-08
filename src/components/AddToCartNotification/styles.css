@@ -1,0 +1,30 @@
+.addToCartNotification {
+    max-width: 430px;
+    max-height: 200px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    
+    background-color: #F1DFCA;
+    padding: 15px !important;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.addToCartNotification__titleContaier {
+    display: flex;
+}
+
+.addToCartNotification__title {
+    font-weight: 600;
+    width: 100%;
+    align-self: center;
+
+    margin-bottom: 10px;
+}
+
+.addToCartNotification__closeButton {
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}

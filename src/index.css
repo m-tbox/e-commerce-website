@@ -1,4 +1,9 @@
+* {
+  margin: 0;
+}
+
 body {
+  background-color: #F9EDEA;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +15,34 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+[data-theme='light'] {
+  --body-background: #F9EDEA;
+
+  --header-background: #94628E;
+  --header-text-color: white;
+  --header-search-icon-background: #F9EDEA;
+
+  --button-color: #94628E;
+  --button-text-color: white;
+  --button-border-color: #6d366a #b671b2 #dfb7dd;
+
+  --product-background: white;
+  --product-text-color: black;
+
+  --subtotal-background: #F1DFCA;
+  --subtotal-border-color: #ddb282;
+  --subtotal-text-color: black;
+
+  --login-card-background: #F1DFCA;
+  --login-card-border-color: #ddb282;
+
+  --cart-incDec-button-color: #F1DFCA;
+  --cart-incDec--border-color: #ddb282;
+
+  --cart-image-background: #f1e5d5;
+  --cart-image-border-color: #e2cfb9;
+
+  --payment-card-background: #F1DFCA;
 }

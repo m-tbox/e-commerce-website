@@ -1,0 +1,29 @@
+
+.inputField {
+    margin-bottom: 10px;
+}
+
+.inputField__input {
+    height: 30px;
+    margin-bottom: 5px;
+    width: 98%;
+    border-radius: 3px;
+
+    border: 1px solid;
+}
+
+.inputField__error {
+    border: 1px solid red;
+}
+
+.inputField > h5 {
+    margin-bottom: 5px;
+}
+
+.inputField__errorMsg {
+    color: red;
+}
+
+.inputField__errorContainer {
+    margin-bottom: 5px;
+}

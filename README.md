@@ -1,3 +1,12 @@
+# Project Description
+
+e-commerce website frontend with auth feature made using follwoing:
+1. React.js 
+2. Redux
+3. Firebase Auth 
+4. BEM followed for css
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
